@@ -53,13 +53,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
 
     const getItemQuantity = (id: number) => {
-        const item = cart?.find((item) => item.id === id);
+        const item = cart?.find((item: { id: number; }) => item.id === id);
 
         return item?.quantity || 0;
     };
 
     const increaseQuantity = (id: number) => {
-        setCart((currentCart) => {
+        setCart((currentCart: any[]) => {
             if (currentCart?.find(item => item.id === id) == null) {
                 return [
                     ...currentCart || [],
