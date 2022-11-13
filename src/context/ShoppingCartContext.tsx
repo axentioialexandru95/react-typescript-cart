@@ -85,7 +85,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
 
     const decreaseQuantity = (id: number) => {
-        setCart((currentCart) => {
+        setCart((currentCart: any[]) => {
             if (currentCart?.find(item => item.id === id) == null) {
                 return [
                     ...currentCart || [],
@@ -113,13 +113,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
     const removeFromCart = (id: number) => {
 
-        setCart((currentCart) => {
+        setCart((currentCart: any[]) => {
             return currentCart?.filter((item) => item.id !== id);
         });
 
     };
 
-    const cartQuantity = cart?.reduce((acc, item) => acc + item.quantity, 0);
+    const cartQuantity = cart?.reduce((acc: any, item: { quantity: any; }) => acc + item.quantity, 0);
 
 
 
